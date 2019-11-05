@@ -82,7 +82,7 @@ public class LibraryTest {
 
     @Test
     public void canRemoveBook() {
-        library.removeBook(book1);
+        library.removeBook();
         assertEquals(3, library.bookCount());
     }
 
@@ -118,14 +118,5 @@ public class LibraryTest {
         assertEquals(3, library.findNumberOfBooksByGenre("Drama"));
     }
 
-    @Test
-    public void canUpdateHashMapValueWhenRemovingBook() {
-        library.addBook((book1));
-        library.addBook((book2));
-        library.addBook((book3));
-        library.addBook((book4));
-        library.addBook((book7));
-        library.removeBook(book1);
-        assertEquals(2, library.findNumberOfBooksByGenre("Drama"));
-    }
+
 }
