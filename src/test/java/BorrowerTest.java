@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,11 +18,16 @@ public class BorrowerTest {
     private Book book6;
     private ArrayList<Book> books1;
     private ArrayList<Book> books2;
+    private HashMap<String, Integer> genreAmounts;
 
     @Before
     public void before() {
         books1 = new ArrayList<Book>();
         books2 = new ArrayList<Book>();
+        genreAmounts = new HashMap<String, Integer>();
+        genreAmounts.put("Drama", 2);
+        genreAmounts.put("Surreal", 1);
+        genreAmounts.put("Physics", 1);
         book1 = new Book("The Grapes of Wrath", "John Steinbeck", "Drama");
         book2 = new Book("Fear & Loathing in Las Vegas", "Hunter S. Thomson", "Surreal");
         book3 = new Book("The Grand Design", "Stephen Hawking", "Physics");
@@ -33,7 +39,7 @@ public class BorrowerTest {
         books2.add(book3);
         books2.add(book4);
         borrower = new Borrower(books1);
-        library = new Library(books2);
+        library = new Library(books2, genreAmounts);
     }
 
     @Test

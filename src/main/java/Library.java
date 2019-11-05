@@ -1,13 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
 
     private ArrayList<Book> books;
     private int capacity;
+    private HashMap<String, Integer> genreAmounts = new HashMap<String, Integer>();
 
-    public Library(ArrayList<Book> books){
+    public Library(ArrayList<Book> books, HashMap<String, Integer> genreAmounts){
         this.books = books;
         this.capacity = 5;
+        this.genreAmounts = genreAmounts;
     }
 
     public int bookCount(){
@@ -34,6 +37,10 @@ public class Library {
 
     public Book removeBook(){
         return this.books.remove(0);
+    }
+
+    public int findNumberOfBooksByGenre(String genre){
+        return this.genreAmounts.get(genre);
     }
 
 
