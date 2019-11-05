@@ -20,6 +20,7 @@ public class Library {
     public void addBook(Book book){
         if(hasEnoughCapacity() == true){
             this.books.add(book);
+            updateHashMapValueWithGenreAmount(book.genre);
         }
     }
 
