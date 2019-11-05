@@ -13,6 +13,7 @@ public class LibraryTest {
     private Book book3;
     private Book book4;
     private Book book5;
+    private Book book6;
     private ArrayList<Book> books;
 
     @Before
@@ -23,6 +24,7 @@ public class LibraryTest {
         book3 = new Book("The Grand Design", "Stephen Hawking", "Physics");
         book4 = new Book("The Wasp Factory", "Ian Banks", "Drama");
         book5 = new Book("Zen & the Art of Motorcycle Maintenance", "Robert Pirsig", "Philosophy");
+        book6 = new Book("Delia's Vegetarian Selection ", "Delia Smith", "Cookery");
         books.add(book1);
         books.add(book2);
         books.add(book3);
@@ -38,6 +40,35 @@ public class LibraryTest {
     @Test
     public void canAddBook() {
         library.addBook(book5);
+        assertEquals(5, library.bookCount());
+    }
+
+    @Test
+    public void canGetCapacity() {
+        assertEquals(5, library.getCapacity());
+    }
+
+    @Test
+    public void hasEnoughCapacityTrue() {
+        assertEquals(true, library.hasEnoughCapacity());
+    }
+
+    @Test
+    public void hasEnoughCapacityFalse() {
+        library.addBook(book5);
+        assertEquals(false, library.hasEnoughCapacity());
+    }
+
+    @Test
+    public void addBookIfEnoughCapacity() {
+        library.addBook(book5);
+        assertEquals(5, library.bookCount());
+    }
+
+    @Test
+    public void addBookNotEnoughCapacity() {
+        library.addBook(book5);
+        library.addBook(book6);
         assertEquals(5, library.bookCount());
     }
 }
