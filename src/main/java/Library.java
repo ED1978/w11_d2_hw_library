@@ -6,21 +6,15 @@ public class Library {
     private ArrayList<Book> books;
     private int capacity;
     private HashMap<String, Integer> genreAmounts = new HashMap<String, Integer>();
-    private int dramaAmount;
 
     public Library(ArrayList<Book> books, HashMap<String, Integer> genreAmounts){
         this.books = books;
         this.capacity = 5;
         this.genreAmounts = genreAmounts;
-        this.dramaAmount = 2;
     }
 
     public int bookCount(){
         return this.books.size();
-    }
-
-    public int getDramaAmount(){
-        return this.dramaAmount;
     }
 
     public void addBook(Book book){
@@ -49,14 +43,19 @@ public class Library {
         return this.genreAmounts.get(genre);
     }
 
-    public int countGenreAmountInBooks(String genre){
+    public int updateHashMapValueWithGenreAmount(String genre){
         int genreCount = 0;
         for(Book book : books){
             if(book.genre == genre){
                 genreCount += 1;
+                updateHashMapValue(genre, genreCount);
             }
         }
         return genreCount;
+    }
+
+    public void updateHashMapValue(String genre, int amount){
+        this.genreAmounts.put(genre, amount);
     }
 
 

@@ -22,9 +22,9 @@ public class LibraryTest {
     public void before() {
         books = new ArrayList<Book>();
         genreAmounts = new HashMap<String, Integer>();
-        genreAmounts.put("Drama", 2);
-        genreAmounts.put("Surreal", 1);
-        genreAmounts.put("Physics", 1);
+        genreAmounts.put("Drama", 0);
+        genreAmounts.put("Surreal", 0);
+        genreAmounts.put("Physics", 0);
         book1 = new Book("The Grapes of Wrath", "John Steinbeck", "Drama");
         book2 = new Book("Fear & Loathing in Las Vegas", "Hunter S. Thomson", "Surreal");
         book3 = new Book("The Grand Design", "Stephen Hawking", "Physics");
@@ -86,24 +86,23 @@ public class LibraryTest {
 
     @Test
     public void canFindNumberOfBooksByGenre() {
-        assertEquals(2, library.findNumberOfBooksByGenre("Drama"));
+        assertEquals(0, library.findNumberOfBooksByGenre("Drama"));
     }
 
     @Test
     public void canCountGenreAmountInBooks() {
-        assertEquals(2, library.countGenreAmountInBooks("Drama"));
+        assertEquals(2, library.updateHashMapValueWithGenreAmount("Drama"));
     }
 
     @Test
-    public void canGetGenreAmountInDrama() {
-        assertEquals(2, library.getDramaAmount());
+    public void canUpDateHashMapValue() {
+        library.updateHashMapValue("Drama", 3);
+        assertEquals(3, library.findNumberOfBooksByGenre("Drama"));
     }
 
-//    @Test
-//    public void canUpdateGenreVariableWithGenreAmount() {
-//        library.updateGenreVariableWithGenreAmount("Drama");
-//        assertEquals(2, library.getGenreAmount("Drama"));
-//    }
-
-
+    @Test
+    public void canUpDateHashMapValueWithGenreAmount() {
+        library.updateHashMapValueWithGenreAmount("Drama");
+        assertEquals(2, library.findNumberOfBooksByGenre("Drama"));
+    }
 }
