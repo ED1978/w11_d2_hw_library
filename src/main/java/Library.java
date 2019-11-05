@@ -6,15 +6,21 @@ public class Library {
     private ArrayList<Book> books;
     private int capacity;
     private HashMap<String, Integer> genreAmounts = new HashMap<String, Integer>();
+    private int dramaAmount;
 
     public Library(ArrayList<Book> books, HashMap<String, Integer> genreAmounts){
         this.books = books;
         this.capacity = 5;
         this.genreAmounts = genreAmounts;
+        this.dramaAmount = 2;
     }
 
     public int bookCount(){
         return this.books.size();
+    }
+
+    public int getDramaAmount(){
+        return this.dramaAmount;
     }
 
     public void addBook(Book book){

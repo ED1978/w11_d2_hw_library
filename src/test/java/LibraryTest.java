@@ -93,4 +93,17 @@ public class LibraryTest {
     public void canCountGenreAmountInBooks() {
         assertEquals(2, library.countGenreAmountInBooks("Drama"));
     }
+
+    @Test
+    public void canGetGenreAmountInDrama() {
+        assertEquals(2, library.getDramaAmount());
+    }
+
+//    @Test
+//    public void canUpdateGenreVariableWithGenreAmount() {
+//        library.updateGenreVariableWithGenreAmount("Drama");
+//        assertEquals(2, library.getGenreAmount("Drama"));
+//    }
+
+
 }
