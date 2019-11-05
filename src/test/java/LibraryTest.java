@@ -23,7 +23,7 @@ public class LibraryTest {
     public void before() {
         books = new ArrayList<Book>();
         genreAmounts = new HashMap<String, Integer>();
-        genreAmounts.put("Drama", 2);
+        genreAmounts.put("Drama", 0);
         genreAmounts.put("Surreal", 0);
         genreAmounts.put("Physics", 0);
         book1 = new Book("The Grapes of Wrath", "John Steinbeck", "Drama");
@@ -88,7 +88,7 @@ public class LibraryTest {
 
     @Test
     public void canFindNumberOfBooksByGenre() {
-        assertEquals(2, library.findNumberOfBooksByGenre("Drama"));
+        assertEquals(0, library.findNumberOfBooksByGenre("Drama"));
     }
 
     @Test
@@ -110,6 +110,10 @@ public class LibraryTest {
 
     @Test
     public void canUpdateHashMapValueWhenAddingBook() {
+        library.addBook((book1));
+        library.addBook((book2));
+        library.addBook((book3));
+        library.addBook((book4));
         library.addBook((book7));
         assertEquals(3, library.findNumberOfBooksByGenre("Drama"));
     }
