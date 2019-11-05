@@ -43,5 +43,15 @@ public class Library {
         return this.genreAmounts.get(genre);
     }
 
+    public int countGenreAmountInBooks(String genre){
+        int genreCount = 0;
+        for(Book book : books){
+            if(book.genre == genre){
+                genreCount += 1;
+            }
+        }
+        return genreCount;
+    }
+
 
 }
