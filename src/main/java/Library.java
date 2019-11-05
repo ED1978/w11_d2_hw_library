@@ -6,11 +6,13 @@ public class Library {
     private ArrayList<Book> books;
     private int capacity;
     private HashMap<String, Integer> genreAmounts = new HashMap<String, Integer>();
+    private Book book;
 
     public Library(ArrayList<Book> books, HashMap<String, Integer> genreAmounts){
         this.books = books;
         this.capacity = 5;
         this.genreAmounts = genreAmounts;
+        this.book = book;
     }
 
     public int bookCount(){
@@ -36,8 +38,9 @@ public class Library {
         }
     }
 
-    public Book removeBook(){
-        return this.books.remove(0);
+    public Book removeBook(Book book){
+        this.books.remove(book);
+        return book;
     }
 
     public int findNumberOfBooksByGenre(String genre){
